@@ -51,7 +51,32 @@ Here is a checklist you will need to follow in order to deploy your first Daedri
   * Deploy your SCORE to the testnet **(optional)** :
     * `./scripts/score/deploy_score.sh -n yeouido -t ICXUSD`
   * Test your Daedric SCORE by manually calling the following script **(optional)** :
-    * `./scripts/bots/equalizer/icxusd/post.sh -n yeouido`
+    * Open and edit the file `./calls/post.json`. Change the value of the key `nid` from `0x1` to `0x3`
+    * Run `./scripts/bots/equalizer/icxusd/post.sh -n yeouido`
+    * A successful output should look something like this:
+    ```shell
+    > Result:
+    '-> Getting result for TxHash: 0x376dd546d9846d2a295672478f17ea7d0ebd2c8584113da82f97170849344a2 ...
+    '-> Transaction result: {
+        "jsonrpc": "2.0",
+        "result": {
+            "txHash": "0x376dd546d9846d2a295672478f17ea7d0ebd2c8584113fda82f9717084344a2",
+            "blockHeight": "0xac8999",
+            "blockHash": "0x158ee7dc447287b434c86826f50dd9ffe7fde1f6bf309d3caf5163ed9f0378b",
+            "txIndex": "0x1",
+            "to": "cxaaf89443375899cfc0c0cf746b6dc9eb295f286f",
+            "stepUsed": "0x21a48",
+            "stepPrice": "0x2540be400",
+            "cumulativeStepUsed": "0x21a48", 
+            "eventLogs": [],
+            "logsBloom":    "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "status": "0x1"
+        },
+        "id": 1
+    }
+    ```
+    * Change the value of the key `nid` back from `0x3` to `0x1` on the `./calls/post.json` file (**This is important for Mainnet deployment**).
+    
   * Check the value of your feed using the ICON Yeouido tracker **(optional)** : 
     * https://bicon.tracker.solidwallet.io/contract/<your_contract_address>#readcontract
     
